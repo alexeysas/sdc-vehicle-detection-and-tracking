@@ -33,7 +33,7 @@ The goals / steps of this project are the following:
 [image3]: ./output_images/hog.png
 [image4]: ./output_images/windows_search.png
 [image5]: ./output_images/multiple_windows_search.png
-[image6]: ./examples/labels_map.png
+[image6]: ./output_images/multiple_detections.png
 [image7]: ./examples/output_bboxes.png
 [video1]: ./project_video.mp4
 
@@ -74,15 +74,22 @@ I've used sliding-window technique to find car image. Here is example of 96x96 w
 
 However, to detect vehicles of different scales 
 
-I've used following windows sizes and regions to perform full search of cars of different sizes.
-
-![alt text][image5]
+I've used following windows sizes and regions to perform full search of cars of different sizes:
 
 | Size          | y-region      |  Overlap |
 |:-------------:|:-------------:|:--------:| 
 | 72, 72        | 400, 600      |  50%     |
 | 96, 96        | 400, 650      |  75%     |
 | 128, 128      | 450, None     |  75%     |
+
+Here is image of all windows searched:
+
+![alt text][image5]
+
+The resulting detection cane be found below, as we can see each car has multiple detection points with windoes of different sizes:
+
+![alt text][image6]
+
 
 
 ####2. Show some examples of test images to demonstrate how your pipeline is working.  What did you do to optimize the performance of your classifier?
@@ -118,7 +125,7 @@ Here's an example result showing the heatmap from a series of frames of video, t
 
 ---
 
-###Discussion
+### Discussion
 
 ####1. Briefly discuss any problems / issues you faced in your implementation of this project.  Where will your pipeline likely fail?  What could you do to make it more robust?
 
