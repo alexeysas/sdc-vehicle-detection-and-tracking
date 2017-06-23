@@ -31,7 +31,7 @@ The goals / steps of this project are the following:
 [image1]: ./examples/car_not_car.png
 [image2]: ./examples/HOG_example.jpg
 [image3]: ./output_images/hog.png
-[image4]: ./examples/sliding_window.jpg
+[image4]: ./output_images/windows_search.png
 [image5]: ./examples/bboxes_and_heat.png
 [image6]: ./examples/labels_map.png
 [image7]: ./examples/output_bboxes.png
@@ -56,7 +56,7 @@ I then explored different color spaces and different `skimage.hog()` parameters 
 Here is an example using the `YCrCb` color space and HOG parameters of `orientations=8`, `pixels_per_cell=(8, 8)` and `cells_per_block=(2, 2)`:
 
 
-![alt text][image2]
+![alt text][image3]
 
 ####2. Explain how you settled on your final choice of HOG parameters.
 
@@ -68,9 +68,9 @@ I trained a linear SVM using...
 
 ### Sliding Window Search
 
-I've used sliding-window technique to find car image. Here is example of 96X96 windoe without overlap.
+I've used sliding-window technique to find car image. Here is example of 96x96 window without overlap.
 
-![alt text][image3]
+![alt text][image4]
 
 ####2. Show some examples of test images to demonstrate how your pipeline is working.  What did you do to optimize the performance of your classifier?
 
