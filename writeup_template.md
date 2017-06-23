@@ -66,11 +66,9 @@ I tried various combinations of parameters and...
 
 I trained a linear SVM using...
 
-###Sliding Window Search
+### Sliding Window Search
 
-####1. Describe how (and identify where in your code) you implemented a sliding window search.  How did you decide what scales to search and how much to overlap windows?
-
-I decided to search random window positions at random scales all over the image and came up with this (ok just kidding I didn't actually ;):
+I've used sliding-window technique to find car image. Here is example of 96X96 windoe without overlap.
 
 ![alt text][image3]
 
