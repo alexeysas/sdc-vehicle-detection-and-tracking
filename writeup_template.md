@@ -31,7 +31,7 @@ The goals / steps of this project are the following:
 [image1]: ./examples/car_not_car.png
 [image2]: ./examples/HOG_example.jpg
 [image3]: ./output_images/hog.png
-[image4]: (./output_images/windows_search.png | width=48)
+[image4]: ./output_images/windows_search.png
 [image5]: ./examples/bboxes_and_heat.png
 [image6]: ./examples/labels_map.png
 [image7]: ./examples/output_bboxes.png
@@ -76,7 +76,7 @@ I've used sliding-window technique to find car image. Here is example of 96x96 w
 
 Ultimately I searched on two scales using YCrCb 3-channel HOG features plus spatially binned color and histograms of color in the feature vector, which provided a nice result.  Here are some example images:
 
-![alt text][image4]
+![alt text][image4](width=48)
 ---
 
 ### Video Implementation
