@@ -32,7 +32,7 @@ The goals / steps of this project are the following:
 [image2]: ./examples/HOG_example.jpg
 [image3]: ./output_images/hog.png
 [image4]: ./output_images/windows_search.png
-[image5]: ./examples/bboxes_and_heat.png
+[image5]: ./output_images/multiple_windows_search.png
 [image6]: ./examples/labels_map.png
 [image7]: ./examples/output_bboxes.png
 [video1]: ./project_video.mp4
@@ -68,9 +68,22 @@ I trained a linear SVM using...
 
 ### Sliding Window Search
 
-I've used sliding-window technique to find car image. Here is example of 96x96 window without overlap.
+I've used sliding-window technique to find car image. Here is example of 96x96 window without overlap. It makes sense to restrict sliding search to the region of interest to make search more efficient.  
 
 ![alt text][image4]
+
+However, to detect vehicles of different scales 
+
+I've used following windows sizes and regions to perform full search of cars of different sizes.
+
+![alt text][image5]
+
+| Size          | y-region      |  Overlap |
+|:-------------:|:-------------:|:--------:| 
+| 72, 72        | 400, 600      |  50%     |
+| 96, 96        | 400, 650      |  75%     |
+| 128, 128      | 450, None     |  75%     |
+
 
 ####2. Show some examples of test images to demonstrate how your pipeline is working.  What did you do to optimize the performance of your classifier?
 
