@@ -34,19 +34,20 @@ Addtitionaly, we can use color histogram feature using diffeernt color spaces. H
 
 ![alt text][image1]
 
-However these features ignores shape information - so we need a way to include shape information as well. 
+Code for histogram feature extraction can be found in In 2 of the [a project code](sdc-vehicle-detection-and-tracking.ipynb)
+
+However, these features ignores shape information - so we need a way to include shape information as well. 
 
 ### Histogram of Oriented Gradients (HOG) features
 
-HOG algorithm are pretty good for detecting dinamyc object as explained in [a this presentation](https://www.youtube.com/watch?v=7S5qXET179I)
+HOG algorithm are pretty good for detecting dinamyc object as explained in [a this presentation](https://www.youtube.com/watch?v=7S5qXET179I) as it contains both color(changes) and shape information.
 
-The code for this step is contained in the first code cell of the IPython notebook (or in lines # through # of the file called `some_file.py`).  
+I've used [a scikit-image hog() function](http://scikit-image.org/docs/dev/auto_examples/features_detection/plot_hog.html) to calculate HOG features. I've explored diffferent color spaces to find better representation of car images.
 
+Here is an example using S channel image of `HSV` color space and HOG parameters of `orientations=12`, `pixels_per_cell=(8, 8)` and `cells_per_block=(3, 3)` with `block_norm=L2)`:
 
+![alt text][image3]
 
-I then explored different color spaces and different `skimage.hog()` parameters (`orientations`, `pixels_per_cell`, and `cells_per_block`).  I grabbed random images from each of the two classes and displayed them to get a feel for what the `skimage.hog()` output looks like.
-
-Here is an example using the `YCrCb` color space and HOG parameters of `orientations=8`, `pixels_per_cell=(8, 8)` and `cells_per_block=(2, 2)`:
 
 ### Training Classifier 
 
