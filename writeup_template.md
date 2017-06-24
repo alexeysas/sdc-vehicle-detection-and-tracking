@@ -93,8 +93,8 @@ I've used following windows sizes and regions to perform full search of cars of 
 | Size          | y-region      |  Pixels shift |
 |:-------------:|:-------------:|:-------------:| 
 | 80, 80        | 390, 500      |  10           |
-| 100, 100      | 390, 650      |  20           |
-| 140, 140      | 450, None     |  40           |
+| 100, 100      | 390, 610      |  20           |
+| 140, 140      | 450, 630      |  40           |
 
 Here is image with all windows searched:
 
@@ -110,9 +110,9 @@ Here is image of applied techniques below:
 
 ![alt text][image7]
 
-Also corresponding heatmap:
+Also corresponding heatmap below:
 
-![alt text][image6]
+![alt text][image2]
 
 Code for the sliding windoes search can be found in In 17-23 of the [a project code](sdc-vehicle-detection-and-tracking.ipynb)
 
