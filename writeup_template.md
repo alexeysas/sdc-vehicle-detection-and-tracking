@@ -117,7 +117,7 @@ Also corresponding heatmap below:
 
 ![alt text][image2]
 
-Code for the sliding windoes search can be found in In 17-23 of the [a project code](sdc-vehicle-detection-and-tracking.ipynb)
+Code for the sliding windows search can be found in In 17-23 of the [a project code](sdc-vehicle-detection-and-tracking.ipynb)
 
 ### Video Implementation
 
@@ -125,9 +125,13 @@ We are ready to run vehicle pipeline on the video stream. One issue is that we m
 
 To deal with these issues I am collecting heatmaps of positive detection into the specified buffer (for last 3 frames) and calculating sliding sum of the heatmaps. Additionally, I increased threshold compared to individual image detection to remove false detections and make detection and make sure that resulting detection box is drown around solid part of the car. Rather than sliding averages for the heatmap - I've used exactly same technique as for the individual images.  
 
-Here's an example result showing the heatmap and sliding average heatmap for a series of frames of video.
+Here's an example result showing the heatmap and sliding average heatmap for two frames: first image is detection for the current frame, second image is moving average with threshold applied.
+
+![alt text][image8]
 
 Here is a [link to my video result](./project_video_updated.mp4)
+
+Code for the vidio processing can be found in In 29 of the [a project code](sdc-vehicle-detection-and-tracking.ipynb)
 
 ### Discussion
 
@@ -138,6 +142,8 @@ The main issues with the current pipeline are following:
 * The training dataset for the images contains only rear views of the cars so pipeline will likely fail to detect front view cars and side views. Put it is easy to fix by training classifier on these class of images 
 
 * Also, pipeline cannot distinguish two cars when they are close together. It looks like more advanced clustering techniques required rather than heatmap and labeling - so this question is opened for the future investigation.
+
+* Additionaly, there are still two false detection on the right side of the road. The issues there that dataset for clasifier training does not   have similar images of grass. This can be fixed by applying extended dataset for training.    
 
 Additional possible way to improve pipeline is to implement more reliable vehicle tracking for the video. One of the possible method is to provide small number of sliding windows in the beginning and as soon as detection is made, for each consequent frame provide more sliding windows for this specific area to make detection and tracking more solid of detected vehicle.   
 
