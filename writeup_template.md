@@ -101,7 +101,7 @@ Here is image of all windows searched:
 
 The resulting detections can be found below, as we can see each car has multiple detections points with windows of different sizes.
 
-To deal with this we can use [a scipy.labels](' https://docs.scipy.org/doc/scipy-0.16.0/reference/generated/scipy.ndimage.measurements.label.html)
+To deal with this we can use [scipy.labels]('https://docs.scipy.org/doc/scipy-0.16.0/reference/generated/scipy.ndimage.measurements.label.html)
 
 ![alt text][image6]
 
