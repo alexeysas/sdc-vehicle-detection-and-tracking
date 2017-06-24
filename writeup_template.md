@@ -14,18 +14,6 @@ Following steps were applied:
 * Implemented a sliding-window technique and use your trained classifier to search for vehicles in images
 * Used heat map clustering teqnique to reject false detections  
 * Implemented pipline above to detect and track vehicles on the video stream.
-
-
-**Vehicle Detection Project**
-
-The goals / steps of this project are the following:
-
-* Perform a Histogram of Oriented Gradients (HOG) feature extraction on a labeled training set of images and train a classifier Linear SVM classifier
-* Optionally, you can also apply a color transform and append binned color features, as well as histograms of color, to your HOG feature vector. 
-* Note: for those first two steps don't forget to normalize your features and randomize a selection for training and testing.
-* Implement a sliding-window technique and use your trained classifier to search for vehicles in images.
-* Run your pipeline on a video stream (start with the test_video.mp4 and later implement on full project_video.mp4) and create a heat map of recurring detections frame by frame to reject outliers and follow detected vehicles.
-* Estimate a bounding box for vehicles detected.
  
 [//]: # (Image References)
 [image1]: ./examples/car_not_car.png
@@ -40,17 +28,21 @@ The goals / steps of this project are the following:
 
 ### Features evaluations
 
-
-### Histogram of Oriented Gradients (HOG) features
-
-HOG algorithm are pretty good for detecting dinami obkject as explained in [a this presentation](https://www.youtube.com/watch?v=7S5qXET179I)
-
-The code for this step is contained in the first code cell of the IPython notebook (or in lines # through # of the file called `some_file.py`).  
+To detect and recognize cars on the video stream firstly we need to figure out relevant car features. Firstly, we explored dataset and extracted simple feature like color Spatial bins of Color: code can be found in line 4 of the [a code](sdc-vehicle-detection-and-tracking.ipynb)
 
 I started by reading in all the `vehicle` and `non-vehicle` images.  Here is an example of one of each of the `vehicle` and `non-vehicle` classes:
 
 ![alt text][image1]
 ![alt text][image3]
+
+
+### Histogram of Oriented Gradients (HOG) features
+
+HOG algorithm are pretty good for detecting dinamyc object as explained in [a this presentation](https://www.youtube.com/watch?v=7S5qXET179I)
+
+The code for this step is contained in the first code cell of the IPython notebook (or in lines # through # of the file called `some_file.py`).  
+
+
 
 I then explored different color spaces and different `skimage.hog()` parameters (`orientations`, `pixels_per_cell`, and `cells_per_block`).  I grabbed random images from each of the two classes and displayed them to get a feel for what the `skimage.hog()` output looks like.
 
