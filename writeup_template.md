@@ -110,6 +110,7 @@ Here is image of applied techniques below:
 
 ![alt text][image7]
 
+Code for the sliding windoes search can be found in In 17-23 of the [a project code](sdc-vehicle-detection-and-tracking.ipynb)
 
 ### Video Implementation
 
@@ -137,11 +138,17 @@ Here's an example result showing the heatmap from a series of frames of video, t
 
 
 
----
-
 ### Discussion
 
-####1. Briefly discuss any problems / issues you faced in your implementation of this project.  Where will your pipeline likely fail?  What could you do to make it more robust?
+The main issues with the current pipeline are following:
 
-Here I'll talk about the approach I took, what techniques I used, what worked and why, where the pipeline might fail and how I might improve it if I were going to pursue this project further.  
+* It is slow and cannot be used for real-time detection. There are a couple of tricks can be used to increase pipeline speed - such as: reduce number of sliding windows, make HOG features calculated once per frame, rather than for single sliding window, probably try to reduce number of feature even if it makes classifier to perform worse - it still might work due to multiple detections ability.
+ 
+* The training dataset for the images contains only rear views of the cars so pipeline will likely fail to detect front view cars and side views. Put it is easy to fix by training classifier on these class of images 
+
+* Also, pipeline cannot distinguish two cars when they are close together. It looks like more advanced clustering techniques required rather than heatmap and labeling - so this question is opened for the future investigation.
+
+Additional possible way to improve pipeline is to implement more reliable vehicle tracking for the video. One of the possible method is to provide small number of sliding windows in the beginning and as soon as detection is made, for each consequent frame provide more sliding windows for this specific area to make detection and tracking more solid of detected vehicle.   
+
+
 
