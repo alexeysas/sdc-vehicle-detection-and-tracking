@@ -75,7 +75,9 @@ The final step to train classifier is to select features set which provides best
 
 Also interesting fact that by adding HOG features for the H channel for HLS reduces testing accuracy. 
 
-Code fore the data preparation and classifier trainign can be found in In 11-15 of the [a project code](sdc-vehicle-detection-and-tracking.ipynb)
+The resulting classifer accuracy for the big cars and non-cars images (17760) is 99.1%
+
+Code fore the data preparation and classifier training can be found in In 11-15 of the [a project code](sdc-vehicle-detection-and-tracking.ipynb)
 
 ### Sliding Window Search
 
@@ -97,20 +99,15 @@ Here is image of all windows searched:
 
 ![alt text][image5]
 
-The resulting detection cane be found below, as we can see each car has multiple detection points with windoes of different sizes:
+The resulting detections can be found below, as we can see each car has multiple detections points with windows of different sizes.
+
+To deal with this we can use [scipy.labels](' https://docs.scipy.org/doc/scipy-0.16.0/reference/generated/scipy.ndimage.measurements.label.html)
 
 ![alt text][image6]
 
-
-
-####2. Show some examples of test images to demonstrate how your pipeline is working.  What did you do to optimize the performance of your classifier?
-
-Ultimately I searched on two scales using YCrCb 3-channel HOG features plus spatially binned color and histograms of color in the feature vector, which provided a nice result.  Here are some example images:
-
-![alt text][image4](width=48)
----
-
 ### Video Implementation
+
+We are ready to run vehicle pipeline on the video stream. One issue is that we have multuple detections   
 
 ####1. Provide a link to your final video output.  Your pipeline should perform reasonably well on the entire project video (somewhat wobbly or unstable bounding boxes are ok as long as you are identifying the vehicles most of the time with minimal false positives.)
 Here's a [link to my video result](./project_video.mp4)
