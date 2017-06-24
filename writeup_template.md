@@ -32,7 +32,7 @@ To detect and recognize cars on the video stream firstly we need to figure out r
 
 Addtitionaly, we can use color histogram feature using diffeernt color spaces. Here is histogram feature visualization for car and non-car images:
 
-![alt text][image2]
+![alt text][image1]
 
 However these features ignores shape information - so we need a way to include shape information as well. 
 
