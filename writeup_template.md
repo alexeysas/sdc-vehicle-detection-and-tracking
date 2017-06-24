@@ -95,7 +95,9 @@ I've used following windows sizes and regions to perform full search of cars of 
 |:-------------:|:-------------:|:-------------:| 
 | 80, 80        | 390, 500      |  10           |
 | 100, 100      | 390, 610      |  20           |
-| 140, 140      | 450, 630      |  40           |
+| 140, 140      | 450, 630      |  30           |
+
+Small windoe is required  for the centre of image to detect small vehicles and lager windoes required closer to the car to detect closer and larger vehicles.
 
 Here is image with all windows searched:
 
