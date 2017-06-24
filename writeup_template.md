@@ -10,10 +10,10 @@ Following steps were applied:
 
 * Different image features like: spatial color bins, color histogram and HOG(Histogram of Oriented Gradients) computed 
 * Relevant set of features for the car detection selected
-* Trained classifier on the dataset which contains both cars and not cars images using seleced features
+* Trained classifier on the dataset which contains both cars and not cars images using selected features
 * Implemented a sliding-window technique and use your trained classifier to search for vehicles in images
-* Used heat map clustering teqnique to reject false detections  
-* Implemented pipline above to detect and track vehicles on the video stream.
+* Used heat map clustering technique to reject false detections  
+* Implemented pipeline above to detect and track vehicles on the video stream.
  
 [//]: # (Image References)
 [image1]: ./output_images/histogram.png
@@ -30,7 +30,7 @@ Following steps were applied:
 
 To detect and recognize cars on the video stream firstly we need to figure out relevant car features. Firstly, we explored dataset and extracted simple feature like spatial bins of colors: code can be found in In 4 of the [a project code](sdc-vehicle-detection-and-tracking.ipynb)
 
-Addtitionaly, we can use color histogram feature using diffeernt color spaces. Here is histogram feature visualization for car and non-car images:
+Additionally, we can use color histogram feature using different color spaces. Here is histogram feature visualization for car and non-car images:
 
 ![alt text][image1]
 
@@ -40,9 +40,9 @@ However, these features ignores shape information - so we need a way to include 
 
 ### Histogram of Oriented Gradients (HOG) features
 
-HOG algorithm are pretty good for detecting dinamyc object as explained in [a this presentation](https://www.youtube.com/watch?v=7S5qXET179I) as it contains both color(changes) and shape information.
+HOG algorithm are pretty good for detecting dynamic object as explained in [a this presentation](https://www.youtube.com/watch?v=7S5qXET179I) as it contains both color(changes) and shape information.
 
-I've used [a scikit-image hog() function](http://scikit-image.org/docs/dev/auto_examples/features_detection/plot_hog.html) to calculate HOG features. I've explored diffferent color spaces to find better representation of car images.
+I've used [a scikit-image hog() function](http://scikit-image.org/docs/dev/auto_examples/features_detection/plot_hog.html) to calculate HOG features. I've explored different color spaces to find better representation of car images.
 
 Here is an example using S channel image of `HSV` color space and HOG parameters of `orientations=12`, `pixels_per_cell=(8, 8)` and `cells_per_block=(3, 3)` with `block_norm=L2)`:
 
@@ -52,16 +52,17 @@ Code can be found in In 7-8 of the [a project code](sdc-vehicle-detection-and-tr
 
 ### Training Classifier 
 
-Now we are ready to train classifier using some of the features provided. I've tried a couple of classifiers and it apperared that SVM provides best accuracy with same features set
+Now we are ready to train classifier using some of the features provided. I've tried a couple of classifiers and it appeared that SVM provides best accuracy with same features set
 
-| Classiifier         | Accuracy      | Training time | Predction Time |
+| Classifier         | Accuracy      | Training time | Prediction Time |
 |:-------------------:|:-------------:|:-------------:| :--------------: 
 | SVC                 | 98.73%        |  18.13s       | 0.03201s       |
 | Logistic Regression | 98.87%        |  27.45s       | 0.0105s        |
 | Decision Tree       | 87.97%        |  293.1s       | 0.02523s       |
 | AdaBoost with LR    | 98.17%        |  190.36s      | 0.0185s        |
 
-The final step to train classifier is to select features set which provides best accuracy. We can tune both classifier parameters and HOG parameters. After some experiments I've come up with following parameters set which work best for me:
+The final step to train classifier is to select features set which provides best accuracy. We can tune both classifier parameters and HOG parameters. After some experiments, I've come up with following parameters set which work best for me:
+
 
 | Parameter           | Value         | 
 |:-------------------:|:-------------:|
@@ -73,11 +74,11 @@ The final step to train classifier is to select features set which provides best
 | HSV channels        | S, V          |
 | YUV channels        | U             |
 
-Also interesting fact that by adding HOG features for the H channel for HLS reduces testing accuracy. 
+Also, interesting fact that by adding HOG features for the H channel for HLS reduces testing accuracy. 
 
-The resulting classifer accuracy for the big cars and non-cars images (17760) is 99.1%
+The resulting classifier accuracy for the big cars and non-cars images (17760) is 99.1%
 
-Code fore the data preparation and classifier training can be found in In 11-15 of the [a project code](sdc-vehicle-detection-and-tracking.ipynb)
+Code for the data preparation and classifier training can be found in In 11-15 of the [a project code](sdc-vehicle-detection-and-tracking.ipynb)
 
 ### Sliding Window Search
 
