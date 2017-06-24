@@ -16,7 +16,7 @@ Following steps were applied:
 * Implemented pipline above to detect and track vehicles on the video stream.
  
 [//]: # (Image References)
-[image1]: ./examples/car_not_car.png
+[image1]: ./output_images/histogram.png
 [image2]: ./examples/HOG_example.jpg
 [image3]: ./output_images/hog.png
 [image4]: ./output_images/windows_search.png
@@ -28,13 +28,13 @@ Following steps were applied:
 
 ### Features evaluations
 
-To detect and recognize cars on the video stream firstly we need to figure out relevant car features. Firstly, we explored dataset and extracted simple feature like color Spatial bins of Color: code can be found in line 4 of the [a code](sdc-vehicle-detection-and-tracking.ipynb)
+To detect and recognize cars on the video stream firstly we need to figure out relevant car features. Firstly, we explored dataset and extracted simple feature like spatial bins of colors: code can be found in In 2 of the [a project code](sdc-vehicle-detection-and-tracking.ipynb)
 
-I started by reading in all the `vehicle` and `non-vehicle` images.  Here is an example of one of each of the `vehicle` and `non-vehicle` classes:
+Addtitionaly, we can use color histogram feature using diffeernt color spaces. Here is histogram feature visualization for car and non-car images:
 
-![alt text][image1]
-![alt text][image3]
+![alt text][image2]
 
+However these features ignores shape information - so we need a way to include shape information as well. 
 
 ### Histogram of Oriented Gradients (HOG) features
 
