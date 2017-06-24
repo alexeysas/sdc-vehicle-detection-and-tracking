@@ -23,6 +23,7 @@ Following steps were applied:
 [image5]: ./output_images/multiple_windows_search.png
 [image6]: ./output_images/multiple_detections.png
 [image7]: ./output_images/single_detection.png
+[image8]: ./output_images/video.png
 [video1]: ./project_video.mp4
 
 
@@ -57,7 +58,7 @@ Now we are ready to train classifier using some of the features provided. I've t
 | Classifier         | Accuracy      | Training time | Prediction Time |
 |:-------------------:|:-------------:|:-------------:| :--------------: 
 | SVC                 | 98.73%        |  18.13s       | 0.03201s       |
-| Logistic Regression | 98.87%        |  27.45s       | 0.0105s        |
+| Logistic Regression | 98.67%        |  27.45s       | 0.0105s        |
 | Decision Tree       | 87.97%        |  293.1s       | 0.02523s       |
 | AdaBoost with LR    | 98.17%        |  190.36s      | 0.0185s        |
 
@@ -118,29 +119,13 @@ Code for the sliding windoes search can be found in In 17-23 of the [a project c
 
 ### Video Implementation
 
-We are ready to run vehicle pipeline on the video stream. One issue is that we have multuple detections   
+We are ready to run vehicle pipeline on the video stream. One issue is that we might get not stable detections which may vary from frame to frame and false positives detections.
 
-####1. Provide a link to your final video output.  Your pipeline should perform reasonably well on the entire project video (somewhat wobbly or unstable bounding boxes are ok as long as you are identifying the vehicles most of the time with minimal false positives.)
-Here's a [link to my video result](./project_video.mp4)
+To deal with these issues I am collecting heatmaps of positive detection into the specified buffer (for last 3 frames) and calculating sliding sum of the heatmaps. Additionally, I increased threshold compared to individual image detection to remove false detections and make detection and make sure that resulting detection box is drown around solid part of the car. Rather than sliding averages for the heatmap - I've used exactly same technique as for the individual images.  
 
+Here's an example result showing the heatmap and sliding average heatmap for a series of frames of video.
 
-####2. Describe how (and identify where in your code) you implemented some kind of filter for false positives and some method for combining overlapping bounding boxes.
-
-I recorded the positions of positive detections in each frame of the video.  From the positive detections I created a heatmap and then thresholded that map to identify vehicle positions.  I then used `scipy.ndimage.measurements.label()` to identify individual blobs in the heatmap.  I then assumed each blob corresponded to a vehicle.  I constructed bounding boxes to cover the area of each blob detected.  
-
-Here's an example result showing the heatmap from a series of frames of video, the result of `scipy.ndimage.measurements.label()` and the bounding boxes then overlaid on the last frame of video:
-
-### Here are six frames and their corresponding heatmaps:
-
-![alt text][image5]
-
-### Here is the output of `scipy.ndimage.measurements.label()` on the integrated heatmap from all six frames:
-![alt text][image6]
-
-### Here the resulting bounding boxes are drawn onto the last frame in the series:
-![alt text][image7]
-
-
+Here is a [link to my video result](./project_video_updated.mp4)
 
 ### Discussion
 
