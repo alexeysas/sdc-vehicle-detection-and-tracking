@@ -67,7 +67,7 @@ Now we are ready to train classifier using  extracted features. I've tried a cou
 | Decision Tree       | 87.97%        |  293.1s       | 0.02523s       |
 | AdaBoost with LR    | 98.17%        |  190.36s      | 0.0185s        |
 
-The final step to train classifier is to select features set which provides best accuracy.
+The final step to train classifier is to select features set which provides best accuracy. We can yune both classifier parameters and HOG parametre
 
 | Parameter           | Value         | 
 |:-------------------:|:-------------:|
