@@ -67,14 +67,14 @@ The final step to train classifier is to select features set which provides best
 | Parameter           | Value         | 
 |:-------------------:|:-------------:|
 | SVC C parameter     | 1             | 
-| HOG Bins            | 12            | 
+| HOG Bins            | 9             | 
 | HOG Block Norm      | L2            | 
 | HOG pixel per cell  | 8             |
 | HOG cell per block  | 2             |
 | HSV channels        | S, V          |
 | YUV channels        | U             |
 
-Also, interesting fact that by adding HOG features for the H channel for HLS reduces testing accuracy. 
+Also, interesting fact that by adding HOG features for the H channel for HLS reduces testing accuracy. Also 12 bins leads to more accuracy but reduces speed so I used 9 bins.
 
 The resulting classifier accuracy for the big cars and non-cars images (17760) is 99.1%
 
@@ -109,6 +109,10 @@ To deal with this and create single bounding box we can use heatmap technique (a
 Here is image of applied techniques below:
 
 ![alt text][image7]
+
+Also corresponding heatmap:
+
+![alt text][image6]
 
 Code for the sliding windoes search can be found in In 17-23 of the [a project code](sdc-vehicle-detection-and-tracking.ipynb)
 
