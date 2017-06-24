@@ -90,13 +90,13 @@ However, to detect vehicles of different scales
 
 I've used following windows sizes and regions to perform full search of cars of different sizes:
 
-| Size          | y-region      |  Overlap |
-|:-------------:|:-------------:|:--------:| 
-| 72, 72        | 400, 600      |  50%     |
-| 96, 96        | 400, 650      |  75%     |
-| 128, 128      | 450, None     |  75%     |
+| Size          | y-region      |  Pixels shift |
+|:-------------:|:-------------:|:-------------:| 
+| 80, 80        | 390, 500      |  10           |
+| 100, 100      | 390, 650      |  20           |
+| 140, 140      | 450, None     |  40           |
 
-Here is image of all windows searched:
+Here is image with all windows searched:
 
 ![alt text][image5]
 
