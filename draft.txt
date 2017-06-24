@@ -1,0 +1,22 @@
+ #check if we can extract hog features for the image region to extract processing
+    if pre_extract_hog:
+        for def_ in definition.hog_definition:
+            working_image = convert_color(image, definition.color_space)
+            if region is not None:
+                working_image = working_image[region[0][0] : region[0][1], region[1][0] : region[1][1],:]
+            
+            
+                hog_features = extract_hog_features(working_image, orient=def_.orient,
+                                                    pix_per_cell=def_.pix_per_cell, cell_per_block = def_.cell_per_block,
+                                                    block_norm=def_.block_norm, channels=def_.channels)
+        
+                definition.hog_features = hog_features
+
+
+     if def_.hog_features is not None:
+            hog_features =[]
+            for channel in range(def_.channels):
+                 hog = def_.hog_features[ypos:ypos+nblocks_per_window, xpos:xpos+nblocks_per_window].ravel() 
+        else:
+        # Apply bin_spatial() to get spatial color features
+   
