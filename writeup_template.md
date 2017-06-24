@@ -101,7 +101,7 @@ Here is image of all windows searched:
 
 The resulting detections can be found below, as we can see each car has multiple detections points with windows of different sizes.
 
-To deal with this we can use [scipy.labels]('https://docs.scipy.org/doc/scipy-0.16.0/reference/generated/scipy.ndimage.measurements.label.html)
+To deal with this and create single bounding box we can use heatmap teqnique (add pixel intencity for each box which overlaps this pixel ). Additionaly, we can use this heatmap and pass it to [a scipy.labels]('https://docs.scipy.org/doc/scipy-0.16.0/reference/generated/scipy.ndimage.measurements.label.html) function to determine clusters of the boxes which is more likly are separate vehicles. 
 
 ![alt text][image6]
 
