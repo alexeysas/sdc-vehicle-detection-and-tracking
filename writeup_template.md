@@ -28,13 +28,13 @@ Following steps were applied:
 
 ### Features evaluations
 
-To detect and recognize cars on the video stream firstly we need to figure out relevant car features. Firstly, we explored dataset and extracted simple feature like spatial bins of colors: code can be found in In 2 of the [a project code](sdc-vehicle-detection-and-tracking.ipynb)
+To detect and recognize cars on the video stream firstly we need to figure out relevant car features. Firstly, we explored dataset and extracted simple feature like spatial bins of colors: code can be found in In 4 of the [a project code](sdc-vehicle-detection-and-tracking.ipynb)
 
 Addtitionaly, we can use color histogram feature using diffeernt color spaces. Here is histogram feature visualization for car and non-car images:
 
 ![alt text][image1]
 
-Code for histogram feature extraction can be found in In 2 of the [a project code](sdc-vehicle-detection-and-tracking.ipynb)
+Code for histogram feature extraction can be found in In 4 of the [a project code](sdc-vehicle-detection-and-tracking.ipynb)
 
 However, these features ignores shape information - so we need a way to include shape information as well. 
 
@@ -48,10 +48,11 @@ Here is an example using S channel image of `HSV` color space and HOG parameters
 
 ![alt text][image3]
 
+Code can be found in In 7-8 of the [a project code](sdc-vehicle-detection-and-tracking.ipynb)
 
 ### Training Classifier 
 
-Now we are ready to train classifier using  extracted features. I've tried a couple of classifiers and it apperared that SVM provides best accuracy with same features set
+Now we are ready to train classifier using some of the features provided. I've tried a couple of classifiers and it apperared that SVM provides best accuracy with same features set
 
 | Classiifier         | Accuracy      | Training time | Predction Time |
 |:-------------------:|:-------------:|:-------------:| :--------------: 
