@@ -17,7 +17,7 @@ Following steps were applied:
  
 [//]: # (Image References)
 [image1]: ./output_images/histogram.png
-[image2]: ./examples/HOG_example.jpg
+[image2]: ./output_images/heatmap.png
 [image3]: ./output_images/hog.png
 [image4]: ./output_images/windows_search.png
 [image5]: ./output_images/multiple_windows_search.png
@@ -66,7 +66,7 @@ The final step to train classifier is to select features set which provides best
 
 | Parameter           | Value         | 
 |:-------------------:|:-------------:|
-| SVC C parameter     | 0.05          | 
+| SVC C parameter     | 1             | 
 | HOG Bins            | 12            | 
 | HOG Block Norm      | L2            | 
 | HOG pixel per cell  | 8             |
@@ -82,7 +82,7 @@ Code for the data preparation and classifier training can be found in In 11-15 o
 
 ### Sliding Window Search
 
-I've used sliding-window technique to find car image. Here is example of 96x96 window without overlap. It makes sense to restrict sliding search to the region of interest to make search more efficient and reduce fals positives count.
+I've used sliding-window technique to find car image. Here is example of 96x96 window without overlap. It makes sense to restrict sliding search to the region of interest to make search more efficient and reduce false positives count.
 
 ![alt text][image4]
 
@@ -104,7 +104,7 @@ The resulting detections can be found below, as we can see each car has multiple
 
 ![alt text][image6]
 
-To deal with this and create single bounding box we can use heatmap technique (add pixel intencity for each box which overlaps this pixel). Additionaly, we can use this heatmap and pass it to [a scipy.labels]('https://docs.scipy.org/doc/scipy-0.16.0/reference/generated/scipy.ndimage.measurements.label.html) function to determine clusters of the boxes which is more likly are separate vehicles detected. To reduce amount false positives we can apply heatmap threshold (select only pixels with intencity > threashold). I've used 1 as threshhold as single detection has a great chance to be a false positive.
+To deal with this and create single bounding box we can use heatmap technique (add pixel intensity for each box which overlaps this pixel). Additionally, we can use this heatmap and pass it to [a scipy.labels]('https://docs.scipy.org/doc/scipy-0.16.0/reference/generated/scipy.ndimage.measurements.label.html) function to determine clusters of the boxes which is more likely are separate vehicles detected. To reduce amount false positives, we can apply heatmap threshold (select only pixels with intensity > threshold). I've used 1 as threshold as single detection has a great chance to be a false positive.
 
 Here is image of applied techniques below:
 
