@@ -22,7 +22,7 @@ Following steps were applied:
 [image4]: ./output_images/windows_search.png
 [image5]: ./output_images/multiple_windows_search.png
 [image6]: ./output_images/multiple_detections.png
-[image7]: ./examples/output_bboxes.png
+[image7]: ./output_images/single_detection.png
 [video1]: ./project_video.mp4
 
 
@@ -100,11 +100,16 @@ Here is image with all windows searched:
 
 ![alt text][image5]
 
-The resulting detections can be found below, as we can see each car has multiple detections points with windows of different sizes.
-
-To deal with this and create single bounding box we can use heatmap teqnique (add pixel intencity for each box which overlaps this pixel ). Additionaly, we can use this heatmap and pass it to [a scipy.labels]('https://docs.scipy.org/doc/scipy-0.16.0/reference/generated/scipy.ndimage.measurements.label.html) function to determine clusters of the boxes which is more likly are separate vehicles. 
+The resulting detections can be found below, as we can see each car has multiple detections points with windows of different sizes:
 
 ![alt text][image6]
+
+To deal with this and create single bounding box we can use heatmap technique (add pixel intencity for each box which overlaps this pixel). Additionaly, we can use this heatmap and pass it to [a scipy.labels]('https://docs.scipy.org/doc/scipy-0.16.0/reference/generated/scipy.ndimage.measurements.label.html) function to determine clusters of the boxes which is more likly are separate vehicles detected. To reduce amount false positives we can apply heatmap threshold (select only pixels with intencity > threashold). I've used 1 as threshhold as single detection has a great chance to be a false positive.
+
+Here is image of applied techniques below:
+
+![alt text][image7]
+
 
 ### Video Implementation
 
