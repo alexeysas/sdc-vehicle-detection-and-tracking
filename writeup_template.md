@@ -58,7 +58,7 @@ Here is an example using the `YCrCb` color space and HOG parameters of `orientat
 
 ### Training Classifier 
 
-Now we are ready to train classifier using  extracted features. I've tried a couple of classifier and it apperared that SVM provides best accuracy with same features set
+Now we are ready to train classifier using  extracted features. I've tried a couple of classifiers and it apperared that SVM provides best accuracy with same features set
 
 | Classiifier         | Accuracy      | Training time | Predction Time |
 |:-------------------:|:-------------:|:-------------:| :--------------: 
@@ -68,6 +68,16 @@ Now we are ready to train classifier using  extracted features. I've tried a cou
 | AdaBoost with LR    | 98.17%        |  190.36s      | 0.0185s        |
 
 The final step to train classifier is to select features set which provides best accuracy.
+
+| Parameter           | Value         | 
+|:-------------------:|:-------------:|
+| SVC C parameter     | 0.05          | 
+| HOG Bins            | 12            | 
+| HOG Block Norm      | L2            | 
+| HOG pixel per cell  | 8             |
+| HOG cell per block  | 2             |
+| HSV channels        | S, V          |
+| YUV channels        | U             |
 
 
 I tried various combinations of parameters and...
