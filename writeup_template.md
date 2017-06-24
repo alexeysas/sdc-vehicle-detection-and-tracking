@@ -61,7 +61,7 @@ Now we are ready to train classifier using some of the features provided. I've t
 | Decision Tree       | 87.97%        |  293.1s       | 0.02523s       |
 | AdaBoost with LR    | 98.17%        |  190.36s      | 0.0185s        |
 
-The final step to train classifier is to select features set which provides best accuracy. We can yune both classifier parameters and HOG parametre
+The final step to train classifier is to select features set which provides best accuracy. We can tune both classifier parameters and HOG parameters. After some experiments I've come up with following parameters set which work best for me:
 
 | Parameter           | Value         | 
 |:-------------------:|:-------------:|
@@ -73,16 +73,13 @@ The final step to train classifier is to select features set which provides best
 | HSV channels        | S, V          |
 | YUV channels        | U             |
 
+Also interesting fact that by adding HOG features for the H channel for HLS reduces testing accuracy. 
 
-I tried various combinations of parameters and...
-
-####3. Describe how (and identify where in your code) you trained a classifier using your selected HOG features (and color features if you used them).
-
-I trained a linear SVM using...
+Code fore the data preparation and classifier trainign can be found in In 11-15 of the [a project code](sdc-vehicle-detection-and-tracking.ipynb)
 
 ### Sliding Window Search
 
-I've used sliding-window technique to find car image. Here is example of 96x96 window without overlap. It makes sense to restrict sliding search to the region of interest to make search more efficient.  
+I've used sliding-window technique to find car image. Here is example of 96x96 window without overlap. It makes sense to restrict sliding search to the region of interest to make search more efficient and reduce fals positives count.
 
 ![alt text][image4]
 
